@@ -9,12 +9,14 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 
+app.use('/api/getNews', require('.//routes/getNews.js'))
+
+
+app.use((err,req,res,next)=>{
+    res.send({errMsg: err.message})
+})
 
 
 
-
-
-
-
-app.listen(8173, console.log('Server is running'), sendBot())
+app.listen(8173, console.log('Server is running'))
 

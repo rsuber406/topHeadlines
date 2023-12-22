@@ -4,7 +4,7 @@ const myStories =[]
 
 function getData(filterArr){
 
-    const news = fs.readFileSync("../news.json")
+    const news = fs.readFileSync("./news.json")
 
     const parsed = JSON.parse(news)
     console.log(parsed.length, "length")
@@ -25,4 +25,4 @@ function getData(filterArr){
         return myStories
 }
 
-getData(["Chin","US", "UN","war","recession", "congress","FBI","CIA","weapons"])
+module.exports = getData
