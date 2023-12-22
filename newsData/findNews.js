@@ -17,23 +17,38 @@ const urls = [{
     host: "Fox News"
 },
 {
-    url:"https://newsmax.com",
-    mainContainer: "article",
-    subContainer: "div",
+    url:"https://www.newsmax.com/newsfront/",
+    mainContainer: "ul .article_link",
+    subContainer: "li a",
     host: "Newsmax"
 }
 ]
 
 
-async function getNews(i){
-   const response = await axios.get(urls[i].url)
-   const $ = cheerio.load(response.data)  
-    const data = $(urls[i].mainContainer)
+async function getNews(){
+    for(let i = 0; i <urls.length; i++){
+        console.log(i)
+        const response = await axios.get(urls[i].url)
+        const $ = cheerio.load(response.data)  
+         const data = $(urls[i].mainContainer)
+     
+         data.each(function(){
+             title = $(this).find(urls[i].subContainer).text()
+             host = urls[i].host
+     
+             newsReports.push({title, host})
+         })
+       
+    }
 
-    data.each(function(){
-        title = $(this).find(urls[i].subContainer).text()
+    const stringified = JSON.stringify(newsReports)
 
-        newsReports.push({title})
-    })
+    fs.writeFileSync("news.json" , stringified)
 
 }
+
+function sendBot(){
+    getNews()
+}
+
+module.exports = sendBot
