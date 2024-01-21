@@ -14,13 +14,15 @@ const urls = [{
     url:"https://www.foxnews.com",
     mainContainer: "article",
     subContainer: ".info header h3 a",
-    host: "Fox News"
+    host: "Fox News",
+    sourceUrl: ".info header h3 a href"
 },
 {
     url:"https://www.newsmax.com/newsfront/",
     mainContainer: "ul .article_link",
     subContainer: "li a",
-    host: "Newsmax"
+    host: "Newsmax",
+    sourceUrl: "li a href"
 }
 ]
 
@@ -35,7 +37,8 @@ async function getNews(){
          data.each(function(){
              title = $(this).find(urls[i].subContainer).text()
              host = urls[i].host
-     
+           
+            
              newsReports.push({title, host})
          })
        

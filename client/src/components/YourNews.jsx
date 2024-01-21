@@ -72,7 +72,7 @@ export default function YourNews(){
             <div className="renderedNews">
                 {yourNews}
                 </div>
-                
+              <h1>Please see the appropriate news site to get the full story.</h1>  
                 </div>}
         </>
     )
