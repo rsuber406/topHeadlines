@@ -9,7 +9,7 @@ function applyFilter(str1, arr1){
             const lowerStr = str1.toLowerCase()
             const lowerArr = arr1[z].toLowerCase()
             if(lowerStr === lowerArr){
-                console.log("this is true")
+                
                 return true
             }
             
@@ -27,7 +27,7 @@ function getData(filterArr){
     const news = fs.readFileSync("./news.json")
 
     const parsed = JSON.parse(news)
-    console.log(parsed.length, "length")
+    
   
     for(let i = 0; i < filterArr.length; i++){
         const filter = filterArr[i]
@@ -53,9 +53,9 @@ function getData(filterArr){
 }
 
 function clearStories(){
-    console.log('clear is called')
-    keyStories =[]
-    return keyStories
+    
+    myStories.splice(0)
+
 }
 
-module.exports = getData
+module.exports = {getData , clearStories}

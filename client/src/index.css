@@ -38,3 +38,39 @@
     align-items: center;
 
 }
+.newsTemplate{
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    align-items: center;
+    flex-wrap:wrap;
+    margin-top:10px;
+    border-radius:20px;
+    width:30%;
+    height:350px;
+    padding:20px;
+    margin-left:5px;
+
+}
+.renderedNews{
+    display:flex;
+   flex-wrap:wrap;
+    width:55%;
+    margin-top:30px;
+    align-items: center;
+    
+}
+.changeFilters{
+    background-color: cornflowerblue;
+    font-size:20px;
+    border-radius:20px;
+    width:20%;
+    margin-top:30px
+    
+}
+.newsContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}

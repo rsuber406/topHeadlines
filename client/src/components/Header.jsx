@@ -12,7 +12,7 @@ export default function Header(){
         <>
             <div className="headerBody">
             <div className="headerLeft">
-                <h1 >Your Headlines Here</h1>
+                <h1 >Your Top Headlines Here</h1>
             </div>
             <div className="headerRight">
                 <h1 >Welcome, {myName.firstName}</h1>
