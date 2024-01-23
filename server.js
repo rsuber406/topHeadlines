@@ -6,10 +6,10 @@ const morgan = require('morgan')
 app.use(express.json())
 
 app.use(morgan('dev'))
-// if(!doOnce){
-//     sendBot()
-//     doOnce = true
-// }
+if(!doOnce){
+    sendBot()
+    doOnce = true
+}
 
 function botControl(){
     sendBot()
