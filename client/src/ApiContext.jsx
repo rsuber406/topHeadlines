@@ -13,7 +13,8 @@ const ApiContext = React.createContext()
 
     const creds ={
         username: "",
-        password: ""
+        password: "",
+        err: ""
     }
 const [apiData, setApiData] = React.useState(localStorage.getItem('userStories')? JSON.parse(localStorage.getItem('userStories')): [])
 
@@ -27,7 +28,7 @@ const [displayNews, setDisplayNews] = React.useState(localStorage.getItem('userS
 const [loginUser, setLoginUser] = React.useState(creds)
 
 const [authUser, setAuthUser] = React.useState({
-    token: localStorage.getItem("token")? JSON.parse(localStorage.getItem('token')): ""
+    token: localStorage.getItem("token")? localStorage.getItem('token'): ""
 }) 
     
     
@@ -38,6 +39,46 @@ function handleNameChange(event){
         return{
             ...prevState,
             [name]: value
+        }
+    })
+}
+
+function handleChange(event){
+    const {name, value} = event.target
+    if(name === "username" || "password"){
+        setLoginUser(prevState => {
+            return{
+                ...prevState,
+                [name]: value
+            }
+        })
+    }
+}
+
+function signOn(event){
+    event.preventDefault()
+    axios.post('/api/login', loginUser)
+        .then(res => setAuthUser(prevState => {
+            localStorage.setItem("token", res.data.token)
+            return {
+                ...prevState,
+                token: res.data.token
+            }
+        }))
+        .catch(err => setLoginUser(prevState=> {
+            return{
+                ...prevState,
+                err: err.respone.data.message
+            }
+        }))
+}
+
+function signOut(){
+    localStorage.removeItem('token')
+    setAuthUser(prevState => {
+        return{
+            ...prevState,
+            token: ""
         }
     })
 }
@@ -73,9 +114,6 @@ function renderNews(){
     setDisplayNews(prevState => !prevState)
 }
 
-console.log(typeof(myName.updateName))
-
-console.log(apiData)
 
 return(
     <ApiContext.Provider value={{
@@ -88,7 +126,10 @@ return(
         renderNews,
         displayNews,
         authUser,
-        loginUser
+        loginUser,
+        handleChange,
+        signOn,
+        signOut
     }}>{props.children} </ApiContext.Provider>
 )
 }

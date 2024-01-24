@@ -8,7 +8,7 @@ import YourNews from './YourNews.jsx'
 export default function Home(){
 
     const { myName} = React.useContext(ApiContext)
-   
+    document.body.style.backgroundColor = "#386270"
     
 
     

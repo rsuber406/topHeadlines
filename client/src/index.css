@@ -2,19 +2,24 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-
+ 
 }
 .headerBody{
     display:flex;
     justify-content:space-between;
     width:100%;
-    background: linear-gradient(90deg,red,white,blue)
+    background: linear-gradient(90deg,#F05200,#386270)
 }
 .headerLeft{
     margin-left: 5%;
 }
 .headerRight{
     margin-right:5%;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width:25%;
+    color:whitesmoke;
 }
 .nameForm{
     display: flex;
@@ -27,10 +32,11 @@
 }
 .nameButton{
     border:none;
-    background-color:cornflowerblue;
+    background-color:#F05200;
     border-radius: 5px;
     height:30px;
     width:60px;
+    font-weight:700;
 }
 .newsSearch{
     display: flex;
@@ -50,6 +56,8 @@
     height:350px;
     padding:20px;
     margin-left:5px;
+    background-color: #704B38;
+    color:whitesmoke;
 
 }
 .renderedNews{
@@ -61,12 +69,20 @@
     
 }
 .changeFilters{
-    background-color: cornflowerblue;
+    background-color: #F05200;
     font-size:20px;
     border-radius:20px;
     width:20%;
-    margin-top:30px
+    margin-top:30px;
+    font-weight:700
     
+}
+.buttonContainer{
+    display:flex;
+  
+    margin-top:15px;
+    width:75%;
+    justify-content: space-evenly;
 }
 .newsContainer{
     display:flex;
@@ -77,7 +93,9 @@
 .loginForm{
     display:flex;
     flex-direction: column;
-    padding:5px
+    padding:5px;
+    width:50%;
+    align-items: center;
 
 }
 .loginInput{
@@ -87,5 +105,21 @@
 .loginContainer{
     display:flex;
     flex-direction: column;
+    align-items: center;
     
+}
+.loginButton{
+    margin-top:15px;
+    border-radius:20px;
+    border:none;
+    background-color:whitesmoke
+}
+.links{
+    text-decoration: none;
+    font-size:30px;
+    color:whitesmoke;
+    transition: color 250ms linear 0ms
+}
+.links:hover{
+    color:orangered
 }

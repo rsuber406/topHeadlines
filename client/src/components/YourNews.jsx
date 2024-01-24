@@ -53,7 +53,7 @@ export default function YourNews(){
             <h2>Please enter your keywords for your news search here</h2>
             <form className="nameForm" onSubmit={submitNews}>
                 <textarea style={{width:"200px", height:"100px"}} type="text" onChange={handleKeywords} value={myNews} ></textarea>
-                <div className="nameSubmit">
+                <div className="buttonContainer">
                 <button className="nameButton" >Submit</button><button className="nameButton" onClick={cancelChange}>Cancel Change</button>
                 </div>
             </form>
@@ -61,7 +61,7 @@ export default function YourNews(){
         {usedSaved && !displayNews && <div style={{position: "relative", top:windowSize /3}} className="newsSearch">
                 <h1>These are the filters you have applied</h1>
                     {displayedFilter}
-                   <div>
+                   <div className="buttonContainer">
                    <button className="nameButton" onClick={fetchNews}>Fetch News</button> <button className="nameButton" onClick={changeFilter}>Change Filters</button>
                    </div>
             </div>}

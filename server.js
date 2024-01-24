@@ -14,10 +14,10 @@ app.use(express.json())
 
 mongoose.connect(process.env.dbAuth , console.log('connected to db'))
 app.use(morgan('dev'))
-// if(!doOnce){
-//     sendBot()
-//     doOnce = true
-// }
+if(!doOnce){
+    sendBot()
+    doOnce = true
+}
 
 function botControl(){
     sendBot()

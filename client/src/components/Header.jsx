@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 export default function Header(){
 
-    const {myName} = React.useContext(ApiContext)
+    const {myName, signOut} = React.useContext(ApiContext)
     
     console.log(myName)
 
@@ -17,7 +17,7 @@ export default function Header(){
             </div>
             <div className="headerRight">
                 <h1 >Welcome, {myName.firstName}</h1>
-                
+                <Link className="links" onClick={signOut} to="/">Sign Out</Link>
             </div>
             </div>
         </>
