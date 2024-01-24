@@ -10,6 +10,11 @@ const ApiContext = React.createContext()
         firstName: localStorage.getItem('user') || "",
         updateName: localStorage.getItem('user')? false : true
     }
+
+    const creds ={
+        username: "",
+        password: ""
+    }
 const [apiData, setApiData] = React.useState(localStorage.getItem('userStories')? JSON.parse(localStorage.getItem('userStories')): [])
 
 const [myFilters, setMyFilters] = React.useState(localStorage.getItem('filters')? JSON.parse(localStorage.getItem('filters')): [])
@@ -18,6 +23,12 @@ const [myFilters, setMyFilters] = React.useState(localStorage.getItem('filters')
 const [myName, setMyName] = React.useState( initInputs)
 
 const [displayNews, setDisplayNews] = React.useState(localStorage.getItem('userStories')? true : false)
+
+const [loginUser, setLoginUser] = React.useState(creds)
+
+const [authUser, setAuthUser] = React.useState({
+    token: localStorage.getItem("token")? JSON.parse(localStorage.getItem('token')): ""
+}) 
     
     
 function handleNameChange(event){
@@ -75,7 +86,9 @@ return(
         loadInputs,
         myFilters,
         renderNews,
-        displayNews
+        displayNews,
+        authUser,
+        loginUser
     }}>{props.children} </ApiContext.Provider>
 )
 }

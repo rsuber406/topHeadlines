@@ -1,6 +1,7 @@
 import React from "react"
 import "../index.css"
 import { ApiContext } from "../ApiContext"
+import { Link } from "react-router-dom"
 
 export default function Header(){
 
@@ -16,6 +17,7 @@ export default function Header(){
             </div>
             <div className="headerRight">
                 <h1 >Welcome, {myName.firstName}</h1>
+                
             </div>
             </div>
         </>

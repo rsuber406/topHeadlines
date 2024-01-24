@@ -16,7 +16,7 @@ export default function Home(){
     return(
         <>
        <div className='homeBody'>
-        <Header />
+      
       {myName.updateName &&  <div className='nameInput'>
             <h1>Please input your name below</h1>
             <YourInfoHere />

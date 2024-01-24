@@ -74,3 +74,18 @@
     align-items: center;
     
 }
+.loginForm{
+    display:flex;
+    flex-direction: column;
+    padding:5px
+
+}
+.loginInput{
+    margin-top:5px;
+    border-radius: 15px;
+}
+.loginContainer{
+    display:flex;
+    flex-direction: column;
+    
+}

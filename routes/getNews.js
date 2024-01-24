@@ -5,7 +5,7 @@ const newsRouter = express.Router()
 const {getData , clearStories} = require('../newsData/dataFunctions.js')
 
 
-newsRouter.post('/', async(req,res)=>{
+newsRouter.post('/getNews', async(req,res)=>{
     try {
            
           const myNews = getData(req.body)
