@@ -110,6 +110,19 @@ function loadInputs(filter){
     
 }
 
+function refreshPage(){
+    const loadData = JSON.parse(localStorage.getItem('filters'))
+    let saveData = []
+    axios.post('/api/getNews', loadData )
+        .then(res => setApiData(prevState => {
+            localStorage.setItem('userStories', JSON.stringify(res.data))
+            return res.data
+        }))
+
+       
+}
+
+
 function renderNews(){
     setDisplayNews(prevState => !prevState)
 }
@@ -129,7 +142,8 @@ return(
         loginUser,
         handleChange,
         signOn,
-        signOut
+        signOut,
+        refreshPage
     }}>{props.children} </ApiContext.Provider>
 )
 }

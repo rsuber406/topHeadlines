@@ -4,7 +4,7 @@ import "../index.css"
 import NewsTemplate from "./NewsTemplate.jsx"
 
 export default function YourNews(){
-    const {loadInputs, myFilters, displayNews, apiData, renderNews} = React.useContext(ApiContext)
+    const {loadInputs, myFilters, displayNews, apiData, renderNews, refreshPage} = React.useContext(ApiContext)
     
     const [myNews, setMyNews] = React.useState("")
     const [usedSaved, setUsedSaved] = React.useState(localStorage.getItem('filters')? true : false)
@@ -35,6 +35,8 @@ export default function YourNews(){
         const toString = myFilters.join(" ")
         loadInputs(toString)
     }
+
+  
 
     const yourNews = apiData.map((news)=>{
         return(
@@ -71,7 +73,7 @@ export default function YourNews(){
 
             {displayNews && 
             <div className="newsContainer">
-                <button onClick={changeFilter} className="changeFilters">Change Filters</button>
+                <button onClick={changeFilter} className="changeFilters">Change Filters</button><button className="changeFilters" onClick={refreshPage}>Refresh</button>
             <div className="renderedNews">
                 {yourNews}
                 </div>

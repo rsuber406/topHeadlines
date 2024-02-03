@@ -15,10 +15,10 @@ app.use(express.json())
 
 mongoose.connect(process.env.dbAuth , console.log('connected to db'))
 app.use(morgan('dev'))
-if(!doOnce){
-    sendBot()
-    doOnce = true
-}
+// if(!doOnce){
+//     sendBot()
+//     doOnce = true
+// }
 
 function botControl(){
     sendBot()
@@ -39,5 +39,5 @@ app.get("*", (req,res)=>{
 })
 
 
-app.listen(8173, console.log('Server is running'), setInterval(botControl, 86400000))
+app.listen(8173, console.log('Server is running'))
 

@@ -7,7 +7,7 @@ export default function NewsTemplate(props){
 
     return(<>
         <div key={title} className='newsTemplate'>
-            <h1>{title} </h1>
+            <h1 className='headline'>{title} </h1>
             <h2>Source: {source} </h2>
             
         </div>
