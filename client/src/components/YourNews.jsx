@@ -5,6 +5,7 @@ import NewsTemplate from "./NewsTemplate.jsx"
 
 export default function YourNews(){
     const {loadInputs, myFilters, displayNews, apiData, renderNews} = React.useContext(ApiContext)
+    
     const [myNews, setMyNews] = React.useState("")
     const [usedSaved, setUsedSaved] = React.useState(localStorage.getItem('filters')? true : false)
 
@@ -40,6 +41,8 @@ export default function YourNews(){
             <NewsTemplate title={news.title} source={news.host} key={news.title} />
         )
     })
+
+  
 
     function cancelChange(){
         setUsedSaved(true)
