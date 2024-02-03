@@ -9,7 +9,12 @@ export default function YourNews(){
     const [myNews, setMyNews] = React.useState("")
     const [usedSaved, setUsedSaved] = React.useState(localStorage.getItem('filters')? true : false)
 
-
+    const windowWidth = window.innerWidth
+    let customMargin;
+    if(windowWidth < 1100){
+        customMargin = "20px"
+    }
+    else customMargin="0px"
     function handleKeywords (event){
         const {value} = event.target
         setMyNews(prevState => value)
@@ -77,7 +82,7 @@ export default function YourNews(){
             <div className="renderedNews">
                 {yourNews}
                 </div>
-              <h1>Please see the appropriate news site to get the full story.</h1>  
+              <h1 style={{marginLeft:customMargin}} >Please see the appropriate news site to get the full story.</h1>  
                 </div>}
         </>
     )
