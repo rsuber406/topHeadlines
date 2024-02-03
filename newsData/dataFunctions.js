@@ -47,8 +47,7 @@ function getData(filterArr){
         }
     })
     
-    console.log(keyStories)
-    console.log(keyStories.length)
+    
         return keyStories
 }
 
