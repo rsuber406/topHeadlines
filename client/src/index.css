@@ -8,7 +8,7 @@
     display:flex;
     justify-content:space-between;
     width:100%;
-    background: linear-gradient(90deg,#704B38,#386270)
+    background: linear-gradient(90deg,#704B38,#f0540092,#704B38)
 }
 .headerLeft{
     margin-left: 5%;
@@ -32,7 +32,7 @@
 }
 .nameButton{
     border:none;
-    background-color:#F05200;
+    background: linear-gradient(90deg,#704B38,#386270);
     border-radius: 5px;
     height:30px;
     width:60px;
@@ -58,7 +58,13 @@
     margin-left:5px;
     background-color: #704B38;
     color:whitesmoke;
+    transition: scale 250ms linear 0ms;
+   
 
+}
+.newsTemplate:hover{
+    scale:1.05;
+    background-image: linear-gradient(#704B38,#F05200,#704B38)
 }
 .renderedNews{
     display:flex;
@@ -70,13 +76,13 @@
     
 }
 .changeFilters{
-    background-color: #F05200;
+    background: linear-gradient(90deg,#704B38,#F05200,#704B38) ;
     font-size:20px;
     border-radius:20px;
     width:20%;
     margin-top:30px;
     font-weight:700
-    
+    ;
 }
 .buttonContainer{
     display:flex;
